@@ -103,14 +103,14 @@ header.scrolled .nav-links a {
 
 .nav-toggle {
     display: none;
-    font-size: 24px;
-    color: var(--text-main);
+    font-size: 28px;
+    color: #fff; /* White over dark hero image initially */
     cursor: pointer;
     transition: var(--transition);
 }
 
 .scrolled .nav-toggle {
-    color: var(--text-main);
+    color: var(--text-main); /* Dark color when scrolled */
 }
 
 .nav-links {
@@ -877,6 +877,15 @@ header.scrolled .nav-links a {
         padding: 0 40px;
     }
 
+    header {
+        padding: 0 40px;
+        height: 90px;
+    }
+
+    header.scrolled {
+        padding: 0 40px;
+    }
+
     .hero-slider h1 {
         font-size: 3.5rem;
     }
@@ -890,6 +899,16 @@ header.scrolled .nav-links a {
 
 /* Tablets & Mobile Large (768px) */
 @media (max-width: 768px) {
+    header {
+        padding: 0 30px;
+        height: 80px;
+    }
+
+    header.scrolled {
+        padding: 0 30px;
+        height: 80px;
+    }
+
     .nav-toggle {
         display: block;
         order: 2;
@@ -1006,6 +1025,20 @@ header.scrolled .nav-links a {
 @media (max-width: 480px) {
     .container {
         padding: 0 20px;
+    }
+
+    header {
+        padding: 0 20px;
+        height: 70px;
+    }
+
+    header.scrolled {
+        padding: 0 20px;
+        height: 70px;
+    }
+
+    .nav-toggle {
+        font-size: 24px;
     }
 
     .hero-slider-wrapper {
