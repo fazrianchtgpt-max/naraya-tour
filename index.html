@@ -23,7 +23,7 @@
             </a>
 
             <div class="nav-toggle" id="navToggle">
-                <i class="fa-solid fa-bars"></i>
+                <span>&#9776;</span>
             </div>
             
             <ul class="nav-links" id="navLinks">
@@ -441,11 +441,15 @@
         // Mobile Menu Toggle
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
+        const navToggleSpan = navToggle.querySelector('span');
 
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            navToggle.querySelector('i').classList.toggle('fa-bars');
-            navToggle.querySelector('i').classList.toggle('fa-xmark');
+            if (navLinks.classList.contains('active')) {
+                navToggleSpan.innerHTML = '&#10005;'; // X mark
+            } else {
+                navToggleSpan.innerHTML = '&#9776;'; // Hamburger mark
+            }
         });
 
         // Close menu when link is clicked
@@ -453,8 +457,7 @@
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                navToggle.querySelector('i').classList.add('fa-bars');
-                navToggle.querySelector('i').classList.remove('fa-xmark');
+                navToggleSpan.innerHTML = '&#9776;';
             });
         });
 

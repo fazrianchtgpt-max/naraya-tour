@@ -105,18 +105,16 @@ header.scrolled .nav-links a {
     display: none; /* Will be set to flex in media query */
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    background: var(--primary);
+    background: transparent;
     color: #fff;
-    border-radius: var(--radius-sm);
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .scrolled .nav-toggle {
-    background: var(--primary-dark);
+    color: var(--text-main);
+    background: transparent;
 }
 
 .nav-links {
@@ -904,14 +902,20 @@ header.scrolled .nav-links a {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(15, 23, 42, 0.95); /* Dark premium glassmorphism */
         flex-direction: column;
         padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         backdrop-filter: blur(10px);
         gap: 20px;
         text-align: center;
         z-index: 1000;
+    }
+
+    .nav-links a {
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 18px;
     }
 
     .nav-links.active {
