@@ -1,0 +1,921 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette - Naraya Tour */
+    --primary: #6B3C92;
+    --primary-dark: #512b70;
+    --secondary: #8b5cf6;
+    --background: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    /* Spacing & Borders */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+    /* Transition */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-main);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header,
+header * {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Navbar / Header --- */
+header {
+    width: 100%;
+    height: 112px;
+    margin: 0;
+    padding: 34px 159px 33px 161px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    height: 90px;
+    padding-left: 161px;
+    padding-right: 159px;
+}
+
+header.scrolled .nav-links a {
+    color: var(--text-main);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 44px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--white);
+    text-transform: capitalize;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* --- Hero Slider --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 750px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Dark Overlay for slides */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55); /* Darker overlay for better text contrast */
+    z-index: 2;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5; /* Lift text above the dark overlay for maximum brightness */
+}
+
+.Explore-the-World-with-Naraya-Tour-and-Event {
+    position: absolute;
+    top: 281px;
+    left: 161px;
+    width: 683px;
+    height: 140px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 54px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+    text-align: left;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle shadow for text readability */
+}
+
+.Experienced-and-trusted {
+    position: absolute;
+    top: 445px;
+    left: 161px;
+    width: 611px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 1.0); /* Back to pure white for better visibility */
+    margin: 0;
+    text-align: left;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.bold-text {
+    font-weight: 800 !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #D7A6FF 0%, #B459FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800 !important; /* Ensured extra bold */
+}
+
+.btn-book {
+    width: 228px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 74px 1051px 0 161px;
+    padding: 16px 50px;
+    border-radius: 444px;
+    background-color: #6b3c92;
+    transition: var(--transition);
+    z-index: 5;
+    text-decoration: none;
+    position: absolute;
+    top: 493px;
+    left: 0;
+    pointer-events: auto;
+}
+
+.Book-Sekarang {
+    width: 128px;
+    height: 20px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    line-height: normal;
+    text-align: left;
+}
+
+/* Slider Navigation Dots Centered */
+.slider-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background: var(--primary);
+    width: 40px;
+    border-radius: 20px;
+}
+
+/* --- Footer --- */
+.footer {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 5rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-about h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.footer-about p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-links h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul li a {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-us {
+    background-color: #f9fafb;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    color: #0f172a; /* Navy */
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    color: #64748b; /* Medium Grey */
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px; /* rounded-2xl */
+    text-align: left;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(107, 60, 146, 0.1);
+    color: #6B3C92; /* Purple Naraya */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    color: #0f172a;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive updates for Why Choose Us */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .why-choose-us {
+        padding: 60px 0;
+    }
+}
+
+/* --- Curated Journeys --- */
+.curated-journeys {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.header-left .tagline {
+    color: #3b82f6; /* Blue */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.header-left h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+}
+
+.header-left h2 .bold-text {
+    font-weight: 800;
+}
+
+.header-left h2 .purple-text {
+    color: #6B3C92;
+    font-weight: 800;
+}
+
+.header-right .view-more {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.tour-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: var(--transition);
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.tour-info {
+    padding: 20px;
+}
+
+.tour-location {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tour-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tour-duration {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* --- Event Section --- */
+.event-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.event-section h2 {
+    font-weight: 800;
+}
+
+.event-banner {
+    background-image: url('../events/trail-run.png');
+    background-size: cover;
+    background-position: center top; /* Shifted up to avoid cutting heads */
+    height: 480px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.event-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, rgba(0,0,0,0.95) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.event-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    width: 100%;
+    text-align: left;
+}
+
+.event-badge {
+    background: #064e3b;
+    color: #fff; /* Updated to white */
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.event-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.event-trail-color {
+    color: #A3F69C;
+}
+
+.event-desc {
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.event-footer {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.btn-join {
+    background: linear-gradient(135deg, #fb923c, #f97316);
+    color: #fff;
+    padding: 14px 35px;
+    border-radius: 100px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+.event-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.event-info-item i {
+    color: #34d399;
+}
+
+/* --- Testimonial Section --- */
+.testimonial-section {
+    padding: 80px 0;
+    background: #fbfdff;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.testimonial-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+}
+
+.testimonial-location {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.testimonial-separator {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.rating {
+    color: #f59e0b; /* Orange stars */
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+/* --- Branded Footer --- */
+.branded-footer {
+    background: #5e3a8c;
+    color: #fff;
+    padding: 80px 0 30px;
+}
+
+.footer-grid-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+/* Footer Columns */
+.footer-col-company { flex: 1.5; }
+.footer-col-nav { flex: 1; text-align: center; }
+.footer-col-social { flex: 1.2; text-align: right; }
+
+.footer-col-company h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.company-info .address {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.contact-item i {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+}
+
+.footer-links-vert {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-vert a {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+.footer-links-vert a:hover {
+    color: #fff;
+}
+
+.social-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.social-icons-group {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.social-circle {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.social-circle:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+/* Footer Bottom Bar */
+.footer-bar {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.gallery-col-vert {
+    height: 500px;
+    width: 100%;
+}
+
+.gallery-col-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 500px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 100%; /* Ensure it fills parent */
+    display: block; /* Fix inline spacing */
+    border-radius: 16px;
+    object-fit: cover;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.gallery-col-vert .gallery-item {
+    height: 100%;
+}
+
+.gallery-col-stacked .gallery-item {
+    height: calc(50% - 12px);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- Branded Footer Responsive --- */
+@media (max-width: 991px) {
+    .footer-grid-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-col-social {
+        text-align: center;
+    }
+    .social-icons-group {
+        justify-content: center;
+    }
+    .footer-col-company {
+        margin-bottom: 30px;
+    }
+    .contact-item {
+        justify-content: center;
+    }
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .tour-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-bar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Re-applying missing responsive for other sections */
+@media (max-width: 1024px) {
+    .tour-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-slider h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .event-content {
+        padding: 40px 30px;
+    }
+    .event-title {
+        font-size: 32px;
+    }
+}
