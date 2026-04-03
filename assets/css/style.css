@@ -97,8 +97,20 @@ header.scrolled .nav-links a {
 }
 
 .logo img {
-    height: 44px;
+    height: 40px;
     width: auto;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.scrolled .nav-toggle {
+    color: var(--text-main);
 }
 
 .nav-links {
@@ -168,21 +180,28 @@ header.scrolled .nav-links a {
 }
 
 .hero-content {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+    z-index: 10;
+    max-width: 800px;
+    width: 80%;
     pointer-events: none;
-    z-index: 5; /* Lift text above the dark overlay for maximum brightness */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Space between title, desc, and button */
+    align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        left: 161px;
+        width: 100%;
+    }
 }
 
 .Explore-the-World-with-Naraya-Tour-and-Event {
-    position: absolute;
-    top: 281px;
-    left: 161px;
-    width: 683px;
-    height: 140px;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 54px;
     font-weight: 900;
@@ -190,22 +209,20 @@ header.scrolled .nav-links a {
     color: #fff;
     margin: 0;
     text-align: left;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle shadow for text readability */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    max-width: 100%;
 }
 
 .Experienced-and-trusted {
-    position: absolute;
-    top: 445px;
-    left: 161px;
-    width: 611px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 1.0); /* Back to pure white for better visibility */
+    color: #fff;
     margin: 0;
     text-align: left;
     text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    max-width: 100%;
 }
 
 .bold-text {
@@ -218,39 +235,29 @@ header.scrolled .nav-links a {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    font-weight: 800 !important; /* Ensured extra bold */
+    font-weight: 800 !important;
 }
 
 .btn-book {
-    width: 228px;
-    height: 52px;
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin: 74px 1051px 0 161px;
     padding: 16px 50px;
-    border-radius: 444px;
+    border-radius: 100px;
     background-color: #6b3c92;
     transition: var(--transition);
     z-index: 5;
     text-decoration: none;
-    position: absolute;
-    top: 493px;
-    left: 0;
     pointer-events: auto;
 }
 
 .Book-Sekarang {
-    width: 128px;
-    height: 20px;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
     line-height: normal;
-    text-align: left;
 }
 
 /* Slider Navigation Dots Centered */
@@ -534,6 +541,7 @@ header.scrolled .nav-links a {
     margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -861,61 +869,200 @@ header.scrolled .nav-links a {
     box-shadow: var(--shadow-lg);
 }
 
-/* --- Branded Footer Responsive --- */
-@media (max-width: 991px) {
+/* --- Final Comprehensive Responsive System --- */
+
+/* Laptops & Tablets (1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .hero-slider h1 {
+        font-size: 3.5rem;
+    }
+
+    .tour-grid, 
+    .features-grid, 
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets & Mobile Large (768px) */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        gap: 20px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-right {
+        margin-top: 10px;
+    }
+
+    .hero-slider-wrapper {
+        min-height: 550px;
+    }
+
+    .hero-content {
+        left: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: calc(100% - 40px);
+        align-items: flex-start;
+    }
+
+    .Explore-the-World-with-Naraya-Tour-and-Event {
+        font-size: 38px;
+    }
+
+    .Experienced-and-trusted {
+        font-size: 16px;
+    }
+
+    .hero-slider h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-slider p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+/* rest of the responsive block stays or is appended... */
+
+    .event-banner {
+        height: auto;
+        min-height: 400px;
+    }
+
+    .event-title {
+        font-size: 32px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-col-vert, 
+    .gallery-col-stacked {
+        height: auto;
+    }
+
+    .gallery-item {
+        height: 300px !important;
+    }
+
     .footer-grid-nav {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
     }
+
     .footer-col-social {
         text-align: center;
     }
+
     .social-icons-group {
         justify-content: center;
     }
-    .footer-col-company {
-        margin-bottom: 30px;
-    }
+
     .contact-item {
         justify-content: center;
     }
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 640px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-    .tour-grid {
-        grid-template-columns: 1fr;
-    }
     .footer-bar {
         flex-direction: column;
-        gap: 15px;
         text-align: center;
+        gap: 15px;
     }
 }
 
-/* Re-applying missing responsive for other sections */
-@media (max-width: 1024px) {
-    .tour-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Mobile Small (480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
     }
-    .hero-slider h1 {
-        font-size: 3rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .hero-slider-wrapper {
+        min-height: 480px;
     }
-    .event-content {
-        padding: 40px 30px;
+
+    .hero-content {
+        left: 15px !important;
+        width: calc(100% - 30px);
     }
-    .event-title {
+
+    .Explore-the-World-with-Naraya-Tour-and-Event {
         font-size: 32px;
+    }
+
+    .Experienced-and-trusted {
+        font-size: 14px;
+    }
+
+    .hero-slider h1 {
+        font-size: 2rem;
+    }
+
+    .tour-grid, 
+    .features-grid, 
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .header-left h2 {
+        font-size: 26px;
+    }
+
+    .btn-book {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    .event-content {
+        padding: 30px 20px;
+    }
+
+    .event-title {
+        font-size: 28px;
+    }
+
+    .event-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .testimonial-card {
+        padding: 24px 20px;
     }
 }
